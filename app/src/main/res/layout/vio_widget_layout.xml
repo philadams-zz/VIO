@@ -2,9 +2,9 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:padding="0dp"
     android:background="@drawable/vio_shape">
 
     <TextView
@@ -15,6 +15,6 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal|center_vertical"
         android:layout_margin="4dp"
-        android:text="Ipsum"/>
+        android:text="20"/>
 
   </LinearLayout>

@@ -7,7 +7,7 @@
     android:updatePeriodMillis="86400000"
     android:previewImage="@drawable/ic_launcher"
     android:initialLayout="@layout/vio_widget_layout"
-    android:resizeMode="horizontal|vertical"
+    android:resizeMode="none"
     android:widgetCategory="home_screen|keyguard"
     android:initialKeyguardLayout="@layout/vio_widget_layout">
 </appwidget-provider>
