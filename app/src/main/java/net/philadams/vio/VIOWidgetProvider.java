@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.util.Log;
 import android.widget.RemoteViews;
 import java.util.Random;
@@ -25,23 +24,27 @@ public class VIOWidgetProvider extends AppWidgetProvider {
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
     for (int widgetId : allWidgetIds) {
 
-      int alpha = (new Random().nextInt(255));  // this value will really be set from the API
+      int alpha = getAlpha();
       Log.d(TAG, String.format("alpha: %d", alpha));
 
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.vio_widget_layout);
       remoteViews.setInt(R.id.vio_image_view, "setImageAlpha", alpha);
       //remoteViews.setTextViewText(R.id.update, String.valueOf(number));
 
-      Intent intent = new Intent(context, VIOWidgetProvider.class);
-      intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-      intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-
+      // pending intent for widget onclick that posts a 'thinking' via the VIOAPIService
+      Intent intent = new Intent(context, VIOAPIService.class);
       PendingIntent pendingIntent =
-          PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+          PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
       remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
+
+      // update widget
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
     }
 
+  }
+
+  private int getAlpha() {
+    return (new Random().nextInt(255));  // this value will really be set from the API
   }
 
 }
