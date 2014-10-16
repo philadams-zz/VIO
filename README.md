@@ -4,5 +4,6 @@ VIO
 todo
 ----
 
-- set vio color in onUpdate() based on time since last tap
-- onclick indicator (edge color? toast?, 3-state by taps?)
+- service to update the alpha value of the widget imageview
+- query api for last time partner was 'thinking' of this user, in service
+- on-tap, post to api a 'thinking' of the remote partner

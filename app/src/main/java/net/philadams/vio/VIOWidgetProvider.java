@@ -6,12 +6,13 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.widget.RemoteViews;
 import java.util.Random;
 
 /**
- * Created by phil on 10/13/14.
+ *
  */
 public class VIOWidgetProvider extends AppWidgetProvider {
 
@@ -23,11 +24,13 @@ public class VIOWidgetProvider extends AppWidgetProvider {
     ComponentName thisWidget = new ComponentName(context, VIOWidgetProvider.class);
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
     for (int widgetId : allWidgetIds) {
-      int number = (new Random().nextInt(100));
+
+      int alpha = (new Random().nextInt(255));  // this value will really be set from the API
+      Log.d(TAG, String.format("alpha: %d", alpha));
 
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.vio_widget_layout);
-      Log.d(TAG, String.format("random number: %d", number));
-      remoteViews.setTextViewText(R.id.update, String.valueOf(number));
+      remoteViews.setInt(R.id.vio_image_view, "setImageAlpha", alpha);
+      //remoteViews.setTextViewText(R.id.update, String.valueOf(number));
 
       Intent intent = new Intent(context, VIOWidgetProvider.class);
       intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vio_widget"
     android:orientation="vertical"
-    android:layout_width="60dp"
-    android:layout_height="60dp"
-    android:padding="0dp"
-    android:background="@drawable/vio_shape">
+    android:layout_width="64dp"
+    android:layout_height="64dp">
 
-    <TextView
-        android:id="@+id/update"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        style="@android:style/TextAppearance.Medium"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_margin="4dp"
-        android:text="20"/>
+  <ImageView
+      android:id="@+id/vio_image_view"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:src="@drawable/vio_fill_shape"/>
 
-  </LinearLayout>
+  <ImageView
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:src="@drawable/vio_outline_shape"/>
+
+  <TextView
+      android:id="@+id/update"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      style="@android:style/TextAppearance.Medium"
+      android:layout_gravity="center"
+      android:gravity="center_horizontal|center_vertical"
+      android:layout_margin="4dp"
+      android:text=""/>
+
+</RelativeLayout>
