@@ -7,12 +7,13 @@
     android:layout_height="64dp">
 
   <ImageView
-      android:id="@+id/vio_image_view"
+      android:id="@+id/vio_widget_fill"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
       android:src="@drawable/vio_fill_shape"/>
 
   <ImageView
+      android:id="@+id/vio_widget_outline"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
       android:src="@drawable/vio_outline_shape"/>
