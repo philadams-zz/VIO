@@ -8,12 +8,10 @@ import retrofit.http.Path;
 /**
  *
  */
-public interface VIOAPIInterface  {
+public interface VIOAPIInterface {
 
-  @GET("/couples/{couple}/thoughts")
-  List<Thought> thoughts(@Path("couple") int couple);
+  @GET("/couples/{couple}/thoughts") List<Thought> thoughts(@Path("couple") int couple);
 
-  @POST("/couples/{couple}/think/{thinker}")
-  Thought think(@Path("couple") int couple, @Path("thinker") String thinker);
-
+  @POST("/couples/{couple}/think/{thinker}") Thought think(@Path("couple") int couple,
+      @Path("thinker") String thinker);
 }

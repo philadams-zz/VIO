@@ -50,11 +50,8 @@ public class VIOWidgetProvider extends AppWidgetProvider {
 
   private int getAlpha() {
 
-    Gson gson = new GsonBuilder()
-        .setDateFormat("yyyy-MM-dd hh:mm:ss")
-        .create();
-    RestAdapter restAdapter = new RestAdapter.Builder()
-        .setEndpoint("http://vio.api.philadams.net")
+    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss").create();
+    RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://vio.api.philadams.net")
         .setConverter(new GsonConverter(gson))
         .build();
     final VIOAPIInterface vio = restAdapter.create(VIOAPIInterface.class);

@@ -1,6 +1,5 @@
 package net.philadams.vio;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.util.List;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
@@ -47,11 +45,8 @@ public class VIOAPIService extends Service {
     //        : R.drawable.vio_outline_shape;
     //Log.d(TAG, String.format("alpha: %d", alpha));
 
-    Gson gson = new GsonBuilder()
-        .setDateFormat("yyyy-MM-dd hh:mm:ss")
-        .create();
-    RestAdapter restAdapter = new RestAdapter.Builder()
-        .setEndpoint("http://vio.api.philadams.net")
+    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss").create();
+    RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://vio.api.philadams.net")
         .setConverter(new GsonConverter(gson))
         .build();
     final VIOAPIInterface vio = restAdapter.create(VIOAPIInterface.class);

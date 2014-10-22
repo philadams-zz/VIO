@@ -13,5 +13,4 @@ public class Thought {
   public String toString() {
     return String.format("Thought[thinker=%s, when=%s]", thinker, when.toString());
   }
-
 }
